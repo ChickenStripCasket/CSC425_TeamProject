@@ -5,7 +5,7 @@
 * Bolu Akindle
 * Zackary Logan
 
-# Goals
+# Epic Goals
 * Explore Next.js
 * Explore React
 * Design UI Layout & UI
