@@ -1,3 +1,5 @@
+import './material.css'
+
 export function Icon(
     {
         icon,
