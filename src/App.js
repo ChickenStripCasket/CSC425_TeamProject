@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { Icon } from './material/Icon';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <section className='toolbar'></section>
       {/* List */}
       <ul className='list'>
-        
+        <Icon icon='search'></Icon>
       </ul>
     </main>
   );
