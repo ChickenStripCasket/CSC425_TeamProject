@@ -1,11 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
 import Toolbar from './Toolbar.js';
 
 function App() {
   return (
     <main>
+      <Header />
+      <header />
       {/* Header */}
       <header className='header'></header>
       {/* Toolbar */}
