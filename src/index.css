@@ -376,5 +376,5 @@ html {
 
 body {
   margin: 0;
-  background-color: #ffffff;
+  background-color: var(--md-sys-color-background);
 }
