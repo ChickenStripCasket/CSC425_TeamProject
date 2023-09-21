@@ -12,6 +12,7 @@ function App() {
       <section className='toolbar'>
         <Toolbar/>
       </section>
+
       {/* List */}
       <ul className='list'>
       </ul>
