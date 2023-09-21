@@ -1,0 +1,18 @@
+.newbtn{
+    background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.header{
+    display:flex;
+    align-items: center;
+}
+
+h1 {
+    margin-right: 1100px; /* Adjust the spacing between h1 and button */
+  }
