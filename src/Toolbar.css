@@ -1,0 +1,19 @@
+/* Style the toolbar container */
+.toolbar {
+    display: flex;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: flex-end;
+}
+/* Style the individual toolbar items */
+.toolbar li {
+    float: left;
+    flex-basis: 50%;
+}
+.toolbar img{
+    width: 25%;
+    height: auto;
+}
+

@@ -1,6 +1,8 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
+import Toolbar from './Toolbar.js';
 
 function App() {
   return (
@@ -10,10 +12,12 @@ function App() {
       {/* Header */}
       <header className='header'></header>
       {/* Toolbar */}
-      <section className='toolbar'></section>
+      <section className='toolbar'>
+        <Toolbar/>
+      </section>
+
       {/* List */}
       <ul className='list'>
-        
       </ul>
     </main>
   );
