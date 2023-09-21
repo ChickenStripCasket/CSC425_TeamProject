@@ -1,20 +1,19 @@
+import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import { FilledButton } from './material/FilledButton';
+import Toolbar from './Toolbar.js';
 
 function App() {
   return (
     <main>
       {/* Header */}
-      <header className='header'>
-
-      </header>
+      <header className='header'></header>
       {/* Toolbar */}
       <section className='toolbar'>
-        
+        <Toolbar/>
       </section>
       {/* List */}
       <ul className='list'>
-        
       </ul>
     </main>
   );
