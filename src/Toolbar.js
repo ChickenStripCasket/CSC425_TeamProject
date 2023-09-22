@@ -1,15 +1,18 @@
 import React from 'react';
 import './Toolbar.css';
+import {Icon} from'./material/Icon.js'
 
 function Toolbar(){
     return(
-        <body>
-            <ul class="toolbar">
-                <li>Completed</li>
-                <li><img src="/card-icon.png" alt="Card View" class="toolbar-icon"></img></li>
-                <li><img src="/list-icon.png" alt="List View" class="toolbar-icon"></img></li>
-            </ul>
-        </body>
+        <div class="toolbar">
+        <div id="task-counter">
+            0/0 Tasks Completed
+        </div>
+        <div class="view-buttons">
+            <button id="card-view-button" class="view-button"><Icon icon="view_cozy"/></button>
+            <button id="list-view-button" class="view-button"><Icon icon="lists"/></button>
+        </div>
+        </div>
     )
 }
 
