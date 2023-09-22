@@ -1,0 +1,6 @@
+.task-card-grid {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 evenly-sized columns */
+    gap: 10px /* gap of 10px between each item */
+}

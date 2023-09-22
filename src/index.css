@@ -378,3 +378,8 @@ body {
   margin: 0;
   background-color: var(--md-sys-color-background);
 }
+
+ul, ol {
+  padding: 0px;
+  list-style-type: none;
+}
