@@ -4,13 +4,14 @@ import './material.css'
 export function IconButton(
     {
         icon,
+        iconFilled,
         onClick,
         className
     }
 ) {
     return (
         <button onClick={onClick} className={`icon-button ${className}`}>
-            <Icon icon={icon}/>
+            <Icon filled={iconFilled} icon={icon}/>
         </button>
     )
 }

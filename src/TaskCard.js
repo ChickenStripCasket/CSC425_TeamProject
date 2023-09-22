@@ -22,7 +22,7 @@ export default function TaskCard(
                 </section>
 
                 {/* completed checkbox */}
-                <IconButton icon={task.completed ? 'check_box' : 'check_box_outline_blank'} className='check-box' onClick={() => {
+                <IconButton iconFilled icon={task.completed ? 'check_box' : 'check_box_outline_blank'} className='check-box' onClick={() => {
                     // make sure that the onTaskChange function exists
                     if (onTaskChange) {
                         task.completed = !task.completed // invert task.completed
