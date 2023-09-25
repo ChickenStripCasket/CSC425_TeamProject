@@ -11,7 +11,7 @@ export default function TaskCard(
     }
 ) {
     return (
-        <li key={key}><button onClick={onClick} className='task-card'>
+        <li key={key}><article onClick={onClick} className='task-card'>
             <ul className='headline'>
                 <section className='title-container'>
                     {/* title */}
@@ -22,7 +22,8 @@ export default function TaskCard(
                 </section>
 
                 {/* completed checkbox */}
-                <IconButton iconFilled icon={task.completed ? 'check_box' : 'check_box_outline_blank'} className='check-box' onClick={() => {
+                <IconButton iconFilled icon={task.completed ? 'check_box' : 'check_box_outline_blank'} className='check-box' onClick={event => {
+                    event.preventDefault()
                     // make sure that the onTaskChange function exists
                     if (onTaskChange) {
                         task.completed = !task.completed // invert task.completed
@@ -31,6 +32,6 @@ export default function TaskCard(
                 }} />
             </ul>
             <div className='body-large description'>{task.description}</div>
-        </button></li>
+        </article></li>
     )
 }

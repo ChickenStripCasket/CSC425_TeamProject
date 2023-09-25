@@ -4,6 +4,7 @@ import TaskCard from './TaskCard'
 export default function TaskCardGrid(
     {
         tasks,
+        onTaskEdit,
         onTasksChange
     }
 ) {
@@ -12,12 +13,16 @@ export default function TaskCardGrid(
             {/* Iterate the tasks list and generate TaskCard components */}
             {tasks.map((task, n) => {
                 return (
-                    <TaskCard key={n} task={task} onTaskChange={newTask => {
+                    <TaskCard key={n} task={task} onClick={event => {
+                        event.preventDefault()
+                        // call onTaskEdit if it exists.
+                        if (onTaskEdit) onTaskEdit(task)
+                    }} onTaskChange={newTask => {
                         // replace the old task with the new one
                         tasks[n] = newTask
                         // call onTasksChange
                         if (onTasksChange) onTasksChange(tasks)
-                    }}/>
+                    }} />
                 )
             })}
         </ol>
