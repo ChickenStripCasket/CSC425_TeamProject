@@ -1,4 +1,5 @@
 import './EditModal.css'
+import Modal from './Modal'
 
 export default function EditModal({
     editTask,
@@ -7,7 +8,7 @@ export default function EditModal({
     return (
         <Modal visible={editTask} onClose={onClose}>
             <header>
-                
+
             </header>
         </Modal>
     )
