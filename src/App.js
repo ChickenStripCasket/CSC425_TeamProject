@@ -1,4 +1,5 @@
 import './App.css';
+import EditModal from './EditModal';
 import Header from './Header';
 import Modal from './Modal';
 import TaskCardGrid from './TaskCardGrid';
@@ -58,7 +59,7 @@ function App() {
   return (
     <main>
       {/* Show modal if editTask isn't null */}
-      <Modal visible={editTask} onClose={() => {setEditTask(null)}}></Modal>
+      <EditModal editTask={editTask} onClose={() => {setEditTask(null)}} />
 
       <Header />
       <header />
