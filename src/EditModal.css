@@ -1,0 +1,8 @@
+.modal-header{
+    font-weight: 600;
+    flex:1;
+}
+
+.modal-header-container{
+    display:flex;
+}
