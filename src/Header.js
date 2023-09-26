@@ -1,5 +1,6 @@
 import React from 'react'
 import'./header.css'
+import { FilledButton } from './material/FilledButton';
 
 
 function Header () {
@@ -8,7 +9,7 @@ function Header () {
         <div >
         <header className="header">
             <h1>Tasks</h1>
-            <button className="newbtn">New +</button>
+            <FilledButton label="New" icon="add"/>
         </header>
         </div>
 
