@@ -66,6 +66,10 @@
   position: relative;
 }
 
+.material-filled-button .material-symbols-rounded {
+  color: inherit
+}
+
 .material-filled-button::before {
   content: '';
   position: absolute;
