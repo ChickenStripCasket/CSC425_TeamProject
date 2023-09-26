@@ -4,7 +4,7 @@ export function Icon(
     {
         icon,
         filled,
-        className
+        className = ''
     }
 ) {
     // build & return the icon

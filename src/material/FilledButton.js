@@ -6,7 +6,7 @@ export function FilledButton(
         label,
         icon,
         onClick,
-        className
+        className = ''
     }
 ) {
     return (

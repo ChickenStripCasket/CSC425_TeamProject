@@ -14,6 +14,7 @@ export default function TaskCardGrid(
             {tasks.map((task, n) => {
                 return (
                     <TaskCard key={n} task={task} onClick={event => {
+                        if (event.defaultPrevented) return
                         event.preventDefault()
                         // call onTaskEdit if it exists.
                         if (onTaskEdit) onTaskEdit(task)

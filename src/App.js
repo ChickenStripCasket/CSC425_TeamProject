@@ -61,10 +61,9 @@ function App() {
       {/* Show modal if editTask isn't null */}
       <EditModal editTask={editTask} onClose={() => {setEditTask(null)}} />
 
-      <Header />
-      <header />
       {/* Header */}
-      <header className='header'></header>
+      <Header />
+      
       {/* Toolbar */}
       <section className='toolbar'>
         <Toolbar />
