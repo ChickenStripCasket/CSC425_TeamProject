@@ -4,6 +4,6 @@
     flex:1;
 }
 
-.modal-header-container{
+.modal-header-container,.due-date-picker{
     display:flex;
 }
