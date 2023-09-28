@@ -4,6 +4,8 @@ import TextInput from './TitleTextInput'
 import { useEffect, useState } from "react"
 import { IconButton } from './material/IconButton'
 import TextAreaInput from './modal/TextAreaInput'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default function EditModal({
     editTask,
@@ -12,7 +14,7 @@ export default function EditModal({
     onDelete
 }) {
     // use the state of the edit modal
-    const [task, setTask] = useState(editTask)
+    const [task, setTask] = useState(editTask || { title: '', description: '', dueDate: new Date() });
 
     const saveTask = (toSave) => {
         // when saving the task, we have to put all of the contents of task
@@ -27,6 +29,10 @@ export default function EditModal({
         // set the task to the current edit task
         saveTask(editTask)
     }, [editTask])
+
+    const handleDueDateChange = (date) => {
+        saveTask({ ...task, dueDate: date });
+    };
 
     return (
         <Modal visible={editTask} onClose={onClose}>
@@ -63,6 +69,19 @@ export default function EditModal({
                     }
                 }
             />
+
+
+            <div className="due-date-picker">
+                <label>Due Date:</label>
+                <DatePicker 
+                selected={task.dueDate}
+                onChange={handleDueDateChange}
+                showTimeSelect
+                timeFormat='h:mm aa'
+                dateFormat='MMMM d, yyyy h:mm '
+                />
+            </div>
+            
         </Modal>
     )
 }
