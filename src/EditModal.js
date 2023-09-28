@@ -10,15 +10,21 @@ export default function EditModal({
     onClose,
     onSubmit
 }) {
+    // use the state of the edit modal
     const [task, setTask] = useState(editTask)
 
-    const saveTask = () => {
-        setTask({ ...task })
+    const saveTask = (toSave) => {
+        // when saving the task, we have to put all of the contents of task
+        // into a new object, because otherwise React will think it's the
+        // same object and not update the UI.
+        // This is because React only checks object by reference, not by their contents.
+        setTask({ ...(toSave || task) })
     }
 
-    // load task
+    // load task when the component is mounted
     useEffect(() => {
-        setTask({ ...editTask })
+        // set the task to the current edit task
+        saveTask(editTask)
     }, [editTask])
 
     return (
