@@ -10,27 +10,52 @@ export default function EditModal({
     onClose,
     onSubmit
 }) {
-    const [task, setTask] = useState('')
+    const [task, setTask] = useState(editTask)
 
     const saveTask = () => {
-        setTask({...task})
+        setTask({ ...task })
     }
 
     // load task
     useEffect(() => {
-        setTask({...editTask})
+        setTask({ ...editTask })
     }, [editTask])
 
     return (
         <Modal visible={editTask} onClose={onClose}>
+            {/* Header */}
             <header className='modal-header-container'>
                 <h3 className='title-large modal-header' >Edit Task</h3>
-                <IconButton icon="delete"/>
-                <IconButton icon="close" onClick={onClose}/>
+                <IconButton icon="delete" />
+                <IconButton icon="close" onClick={onClose} />
 
             </header>
-            <TextInput title='Title' placeHolder={'Enter a Title...'} value= {task?.title} onValueChanged={(value)=>{task.title = value; saveTask()}}></TextInput>
-            <TextAreaInput title='Description' placeholder='Enter a description...' value={task?.description} onValueChanged={value => {task.description = value; saveTask()}} />
+
+            {/* Title Text Input */}
+            <TextInput
+                title='Title'
+                placeHolder={'Enter a Title...'}
+                value={task?.title}
+                onValueChanged={
+                    (value) => {
+                        task.title = value
+                        saveTask()
+                    }
+                }
+            />
+
+            {/* Description TextArea Input */}
+            <TextAreaInput
+                title='Description'
+                placeholder='Enter a description...'
+                value={task?.description}
+                onValueChanged={
+                    value => {
+                        task.description = value
+                        saveTask()
+                    }
+                }
+            />
         </Modal>
     )
 }
