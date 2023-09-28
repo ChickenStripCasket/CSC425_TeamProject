@@ -5,6 +5,7 @@ import Modal from './Modal';
 import TaskCardGrid from './TaskCardGrid';
 import Toolbar from './Toolbar.js';
 import { useState } from 'react';
+import TaskList from './TaskList'
 
 function App() {
   const [editTask, setEditTask] = useState(null)
@@ -71,7 +72,7 @@ function App() {
 
       {/* List */}
       <ul className='list'>
-        <TaskCardGrid tasks={tasks} onTaskEdit={toEditTask => setEditTask(toEditTask)} onTasksChange={newTasks => setTasks([...newTasks])}/>
+        <TaskList tasks={tasks} onTaskEdit={toEditTask => setEditTask(toEditTask)} onTasksChange={newTasks => setTasks([...newTasks])}/>
       </ul>
     </main>
   );
