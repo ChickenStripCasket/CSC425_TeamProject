@@ -8,7 +8,8 @@ import TextAreaInput from './modal/TextAreaInput'
 export default function EditModal({
     editTask,
     onClose,
-    onSubmit
+    onSubmit,
+    onDelete
 }) {
     // use the state of the edit modal
     const [task, setTask] = useState(editTask)
@@ -32,7 +33,7 @@ export default function EditModal({
             {/* Header */}
             <header className='modal-header-container'>
                 <h3 className='title-large modal-header' >Edit Task</h3>
-                <IconButton icon="delete" />
+                <IconButton icon="delete" onClick={onDelete}/>
                 <IconButton icon="close" onClick={onClose} />
 
             </header>
