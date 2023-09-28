@@ -1,0 +1,6 @@
+.list-element-list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px /* gap of 10px between each item */
+}
