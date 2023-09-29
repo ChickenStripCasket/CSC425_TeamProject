@@ -1,16 +1,22 @@
 import React from 'react';
 import './Toolbar.css';
 import {Icon} from'./material/Icon.js'
+import { IconButton } from './material/IconButton';
 
-function Toolbar(){
+function Toolbar(
+    {
+        currentMode,
+        onViewToggle
+    }
+){
     return(
         <div class="toolbar">
         <div id="task-counter">
             0/0 Tasks Completed
         </div>
         <div class="view-buttons">
-            <button id="card-view-button" class="view-button"><Icon icon="view_cozy"/></button>
-            <button id="list-view-button" class="view-button"><Icon icon="lists"/></button>
+            <IconButton className={currentMode == true ? 'view-button selected' : 'view-button'} icon='view_cozy' onClick={() => onViewToggle(true)}/>
+            <IconButton className={!currentMode ? 'view-button selected' : 'view-button'} icon='lists' onClick={() => onViewToggle(false)}/>
         </div>
         </div>
     )
