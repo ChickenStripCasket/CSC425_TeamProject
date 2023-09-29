@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { IconButton } from './material/IconButton';
 import TextAreaInput from './modal/TextAreaInput';
 import { Icon } from './material/Icon.js';
-import { FilledButton } from './material/FilledButton'
+import { FilledButton } from './material/FilledButton';
 
 function formatDate(date){
     // Create a JavaScript Date object
@@ -37,7 +37,6 @@ export default function EditModal({
 
     useEffect(() => {
         saveTask(editTask);
-        setTempDueDate(editTask?.dueDate || new Date());
     }, [editTask])
 
 
