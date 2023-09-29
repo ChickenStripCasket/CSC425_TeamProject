@@ -89,6 +89,8 @@ export default function EditModal({
                 value={formatDate(task?.dueDate || new Date())} // Format the date to ISO string without seconds and timezone
                 onChange={(e) => {
                     task.dueDate = new Date(e.target.value)
+                    saveTask()
+                }}
             />
                
              <FilledButton className='modal-submit' label='Save' onClick={() => {onClose(); onSubmit(task)}}/>
