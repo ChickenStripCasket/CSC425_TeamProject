@@ -31,7 +31,8 @@ export default function EditModal({
     }, [editTask])
 
     const handleDueDateChange = (date) => {
-        saveTask({ ...task, dueDate: date });
+        task.dueDate = date
+        saveTask();
     };
 
     return (

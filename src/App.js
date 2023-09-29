@@ -8,7 +8,12 @@ import { useState } from 'react';
 import TaskList from './TaskList'
 
 function App() {
+  // the task that's currently being edited
   const [editTask, setEditTask] = useState(null)
+
+  // the current task view mode
+  const [gridViewMode, setGridViewMode] = useState(false)
+
   // I've put some random placeholder tasks here for now -Conner
   const [tasks, setTasks] = useState([
     {
@@ -85,12 +90,13 @@ function App() {
       
       {/* Toolbar */}
       <section className='toolbar'>
-        <Toolbar />
+        <Toolbar currentMode={gridViewMode} onViewToggle={state => setGridViewMode(state)} />
       </section>
 
       {/* List */}
       <ul className='list'>
-        <TaskList tasks={tasks} onTaskEdit={toEditTask => setEditTask(toEditTask)} onTasksChange={newTasks => setTasks([...newTasks])}/>
+        {gridViewMode ? <TaskCardGrid tasks={tasks} onTaskEdit={toEditTask => setEditTask(toEditTask)} onTasksChange={newTasks => setTasks([...newTasks])}></TaskCardGrid>
+        : <TaskList tasks={tasks} onTaskEdit={toEditTask => setEditTask(toEditTask)} onTasksChange={newTasks => setTasks([...newTasks])}/>}
       </ul>
     </main>
   );
