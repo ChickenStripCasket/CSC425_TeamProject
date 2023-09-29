@@ -16,60 +16,10 @@ function App() {
 
 
   // the current task view mode
-  const [gridViewMode, setGridViewMode] = useState(false)
+  const [gridViewMode, setGridViewMode] = useState(true)
 
   // I've put some random placeholder tasks here for now -Conner
-  const [tasks, setTasks] = useState([
-    {
-      "id": 0,
-      "title": "Buy groceries",
-      "dueDate": new Date("2023-09-25"),
-      "completed": false,
-      "description": "Purchase groceries for the week."
-    },
-    {
-      "id": 1,
-      "title": "Finish report",
-      "dueDate": new Date("2023-09-23"),
-      "completed": false,
-      "description": "Complete and submit the quarterly report."
-    },
-    {
-      "id": 2,
-      "title": "Schedule dentist appointment",
-      "dueDate": new Date("2023-09-28"),
-      "completed": false,
-      "description": "Book an appointment with the dentist."
-    },
-    {
-      "id": 3,
-      "title": "Gym workout",
-      "dueDate": new Date("2023-09-26"),
-      "completed": false,
-      "description": "Hit the gym for a workout session."
-    },
-    {
-      "id": 4,
-      "title": "Read a book",
-      "dueDate": new Date("2023-09-24"),
-      "completed": false,
-      "description": "Spend some time reading a new book."
-    },
-    {
-      "id": 5,
-      "title": "Pay bills",
-      "dueDate": new Date("2023-09-30"),
-      "completed": false,
-      "description": "Settle monthly utility bills."
-    },
-    {
-      "id": 6,
-      "title": "Plan weekend trip",
-      "dueDate": new Date("2023-09-29"),
-      "completed": false,
-      "description": "Plan a fun weekend getaway."
-    }
-  ])
+  const [tasks, setTasks] = useState([])
 
   // show modal if editTask isn't null
   let completed = 0
@@ -114,8 +64,9 @@ function App() {
 
       {/* List */}
       <ul className='list'>
-        {gridViewMode ? <TaskCardGrid tasks={tasks} onTaskEdit={toEditTask => setEditTask(toEditTask)} onTasksChange={newTasks => setTasks([...newTasks])}></TaskCardGrid>
-        : <TaskList tasks={tasks} onTaskEdit={toEditTask => setEditTask(toEditTask)} onTasksChange={newTasks => setTasks([...newTasks])}/>}
+        { 0 >= tasks.length ? <h3 className='display-small empty-text'>Add a task to begin</h3>
+          : gridViewMode ? <TaskCardGrid tasks={tasks} onTaskEdit={toEditTask => setEditTask(toEditTask)} onTasksChange={newTasks => setTasks([...newTasks])}></TaskCardGrid>
+            : <TaskList tasks={tasks} onTaskEdit={toEditTask => setEditTask(toEditTask)} onTasksChange={newTasks => setTasks([...newTasks])}/>}
       </ul>
     </main>
   );
