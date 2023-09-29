@@ -6,10 +6,14 @@ import TaskCardGrid from './TaskCardGrid';
 import Toolbar from './Toolbar.js';
 import { useState } from 'react';
 import TaskList from './TaskList'
+import NewTaskModal from './NewTaskModal';
 
 function App() {
   // the task that's currently being edited
   const [editTask, setEditTask] = useState(null)
+  const [newTask, setNewTask] = useState(false)
+
+
 
   // the current task view mode
   const [gridViewMode, setGridViewMode] = useState(false)
@@ -96,10 +100,12 @@ function App() {
         }
         setTasks([...tasks])
       }}/>
-
-
+      <NewTaskModal visible={newTask} onClose={()=>setNewTask(false)} onSubmit={(newValue)=>{
+        newValue.id = Math.floor(Math.random() * 1000)
+        tasks.push(newValue)
+        setTasks([...tasks])}}/>
       {/* Header */}
-      <Header />
+      <Header onClick={()=> setNewTask(true)}/>
       
       {/* Toolbar */}
       <section className='toolbar'>
