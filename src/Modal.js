@@ -30,6 +30,7 @@ export default function Modal(
     useEffect(() => {
         setIsVisible(visible)
         if (!visible) {
+            document.body.classList.remove('modal-open')
             setTransitioning(true)
             setTimeout(() => setActiveClass('out'), 10)
             timeoutDebounce(timeoutRef, 150, () => {
@@ -37,6 +38,7 @@ export default function Modal(
                 setActiveClass('')
             })
         } else {
+            document.body.classList.add('modal-open')
             setTimeout(() => setActiveClass('in'), 10)
         }
         

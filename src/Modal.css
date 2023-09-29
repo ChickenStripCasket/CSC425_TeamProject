@@ -10,6 +10,7 @@
     justify-content: center;
     box-sizing: border-box;
     z-index: 10;
+    overflow-y: auto;
 }
 .modal-container::before {
     content: "";
