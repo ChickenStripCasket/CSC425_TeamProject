@@ -42,7 +42,7 @@ export default function EditModal({
             {/* Header */}
             <header className='modal-header-container'>
                 <h3 className='title-large modal-header' >Edit Task</h3>
-                <IconButton icon="delete" onClick={onDelete}/>
+                <IconButton icon="delete" onClick={() => {onClose(); onDelete()}}/>
                 <IconButton icon="close" onClick={onClose} />
 
             </header>
