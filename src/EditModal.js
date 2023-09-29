@@ -6,6 +6,7 @@ import { IconButton } from './material/IconButton'
 import TextAreaInput from './modal/TextAreaInput'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Icon } from './material/Icon.js';
 
 export default function EditModal({
     editTask,
@@ -15,6 +16,7 @@ export default function EditModal({
 }) {
     // use the state of the edit modal
     const [task, setTask] = useState(editTask || { title: '', description: '', dueDate: new Date() });
+    const [showDatePicker, setShowDatePicker] = useState(false);
 
     const saveTask = (toSave) => {
         // when saving the task, we have to put all of the contents of task
@@ -70,19 +72,27 @@ export default function EditModal({
                     }
                 }
             />
+ 
+                <div className="due-date-row">
+                    <div className="due-date-label">Due Date:</div>
+                    <div className="due-date-value">{task.dueDate.toLocaleString()}</div>
+                     <button
+                         className="date-picker-icon-button"
+                         onClick={() => setShowDatePicker(!showDatePicker)}
+                    >
+                    <Icon icon="calendar_month" className="calendar" />
 
-
-            <div className="due-date-picker">
-                <label>Due Date:</label>
-                <DatePicker 
-                selected={task.dueDate}
-                onChange={handleDueDateChange}
-                showTimeSelect
-                timeFormat='h:mm aa'
-                dateFormat='MMMM d, yyyy h:mm '
-                />
+                     </button>
+                {showDatePicker && (
+                    <DatePicker
+                        selected={task.dueDate}
+                        onChange={handleDueDateChange}
+                        showTimeSelect
+                        timeFormat='h:mm aa'
+                        dateFormat='MMMM d, yyyy h:mm '
+                    />
+                )}
             </div>
-            
         </Modal>
     )
 }
