@@ -61,7 +61,11 @@ function App() {
   ])
 
   // show modal if editTask isn't null
-
+  let completed = 0
+  for(const task of tasks){
+    if(task.completed)
+      completed++
+  }
   return (
     <main>
       {/* Show modal if editTask isn't null */}
@@ -72,7 +76,7 @@ function App() {
       
       {/* Toolbar */}
       <section className='toolbar'>
-        <Toolbar currentMode={gridViewMode} onViewToggle={state => setGridViewMode(state)} />
+        <Toolbar currentMode={gridViewMode} onViewToggle={state => setGridViewMode(state) } total={tasks.length} completed={completed} />
       </section>
 
       {/* List */}
