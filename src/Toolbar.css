@@ -9,6 +9,7 @@
   #task-counter {
     display: flex;
     align-items: flex-end;
+    color: var(--md-sys-color-on-surface);
   }
 
 .view-buttons {

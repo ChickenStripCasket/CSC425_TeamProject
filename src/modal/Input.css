@@ -10,6 +10,7 @@
 }
 
 .text-area-input {
+    color: var(--md-sys-color-on-surface);
     width: 100%;
     padding: 10px;
     background-color: var(--md-sys-color-surface-container);

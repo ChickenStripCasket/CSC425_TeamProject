@@ -1,7 +1,7 @@
 import './EditModal.css'
 import Modal from './Modal'
 import TextInput from './TitleTextInput'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { IconButton } from './material/IconButton'
 import TextAreaInput from './modal/TextAreaInput'
 import 'react-datepicker/dist/react-datepicker.css';
@@ -14,13 +14,7 @@ export default function NewTaskModal({
     visible
 }) {
     // use the state of the edit modal
-    const [task, setTask] = useState( {
-        "id": 0,
-        "title": "",
-        "dueDate": new Date(),
-        "completed": false,
-        "description": ""
-      });
+    const [task, setTask] = useState(null);
 
     const saveTask = (toSave) => {
         // when saving the task, we have to put all of the contents of task
@@ -29,6 +23,16 @@ export default function NewTaskModal({
         // This is because React only checks object by reference, not by their contents.
         setTask({ ...(toSave || task) })
     }
+
+    useEffect(() => {
+        setTask({
+            "id": 0,
+            "title": "",
+            "dueDate": new Date(),
+            "completed": false,
+            "description": ""
+          })
+    }, [visible])
 
     return (
         <Modal visible={visible} onClose={onClose}>
