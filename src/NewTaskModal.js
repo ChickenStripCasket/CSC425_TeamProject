@@ -1,13 +1,12 @@
 import './EditModal.css'
 import Modal from './Modal'
 import TextInput from './TitleTextInput'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { IconButton } from './material/IconButton'
 import TextAreaInput from './modal/TextAreaInput'
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Icon } from './material/Icon.js';
 import { FilledButton } from './material/FilledButton'
+import DateTimeInput from './modal/DateTimeInput'
 
 export default function NewTaskModal({
     onClose,
@@ -22,7 +21,6 @@ export default function NewTaskModal({
         "completed": false,
         "description": ""
       });
-    const [showDatePicker, setShowDatePicker] = useState(false);
 
     const saveTask = (toSave) => {
         // when saving the task, we have to put all of the contents of task
@@ -31,11 +29,6 @@ export default function NewTaskModal({
         // This is because React only checks object by reference, not by their contents.
         setTask({ ...(toSave || task) })
     }
-
-    const handleDueDateChange = (date) => {
-        task.dueDate = date
-        saveTask();
-    };
 
     return (
         <Modal visible={visible} onClose={onClose}>
@@ -72,26 +65,15 @@ export default function NewTaskModal({
                 }
             />
  
-                <div className="due-date-row">
-                    <div className="due-date-label">Due Date:</div>
-                    <div className="due-date-value">{task.dueDate.toLocaleString()}</div>
-                     <button
-                         className="date-picker-icon-button"
-                         onClick={() => setShowDatePicker(!showDatePicker)}
-                    >
-                    <Icon icon="calendar_month" className="calendar" />
-
-                     </button>
-                {showDatePicker && (
-                    <DatePicker
-                        selected={task.dueDate}
-                        onChange={handleDueDateChange}
-                        showTimeSelect
-                        timeFormat='h:mm aa'
-                        dateFormat='MMMM d, yyyy h:mm '
-                    />
-                )}
-            </div>
+            {/* date time input */}
+            <DateTimeInput
+                title='Due Date'
+                value={task?.dueDate || new Date()}
+                onValueChanged={newValue => {
+                    task.dueDate = newValue
+                    saveTask()
+                }}
+            />
 
             {/* Submit button */}
             <FilledButton className='modal-submit' label='Save' onClick={() => {onClose(); onSubmit(task)}}/>

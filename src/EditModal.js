@@ -4,24 +4,9 @@ import TextInput from './TitleTextInput';
 import { useEffect, useState } from "react";
 import { IconButton } from './material/IconButton';
 import TextAreaInput from './modal/TextAreaInput';
-import { Icon } from './material/Icon.js';
 import { FilledButton } from './material/FilledButton';
+import DateTimeInput from './modal/DateTimeInput';
 
-function formatDate(date){
-    // Create a JavaScript Date object
-
-    // Get the components (year, month, day, hour, minute) from the Date object
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-
-    // Create a string in the 'YYYY-MM-DDTHH:mm' format
-    return `${year}-${month}-${day}T${hours}:${minutes}`;
-
-    // Set the value of an input with type datetime-local
-}
 export default function EditModal({
     editTask,
     onClose,
@@ -55,8 +40,8 @@ export default function EditModal({
                 placeHolder={'Enter a Title...'}
                 value={task?.title}
                 onValueChanged={(value) => {
-                    const updatedTask = { ...task, title: value };
-                    saveTask(updatedTask);
+                    task.title = value
+                    saveTask();
                 }}
             />
 
@@ -66,16 +51,16 @@ export default function EditModal({
                 placeholder='Enter a description...'
                 value={task?.description}
                 onValueChanged={(value) => {
-                    const updatedTask = { ...task, description: value };
-                    saveTask(updatedTask);
+                    task.description = value
+                    saveTask();
                 }}
             />
 
-             <input
-                type="datetime-local"
-                value={formatDate(task?.dueDate || new Date())} // Format the date to ISO string without seconds and timezone
-                onChange={(e) => {
-                    task.dueDate = new Date(e.target.value)
+            <DateTimeInput
+                title='Due Date'
+                value={task?.dueDate || new Date()}
+                onValueChanged={newValue => {
+                    task.dueDate = newValue
                     saveTask()
                 }}
             />
