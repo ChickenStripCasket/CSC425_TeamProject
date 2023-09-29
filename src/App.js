@@ -73,20 +73,29 @@ function App() {
     if(task.completed)
       completed++
   }
+
   return (
     <main>
       {/* Show modal if editTask isn't null */}
-      <EditModal editTask={editTask} onClose={() => {setEditTask(null)}} onDelete={() => {
+      <EditModal editTask={editTask} onClose={() => {setEditTask(null)}} onSubmit={newTask => {
+        let count=0
+        for(const task of tasks){
+          if(task.id == editTask.id){
+            tasks[count] = newTask
+          }
+          count++
+        }
+        setTasks([...tasks])
+      }} onDelete={() => {
         let count=0
         for(const task of tasks){
           if(task.id == editTask.id){
             tasks.splice(count, 1)
           }
           count++
-      }
-      setTasks([...tasks])
-      }
-      }/>
+        }
+        setTasks([...tasks])
+      }}/>
 
 
       {/* Header */}

@@ -7,6 +7,7 @@ import TextAreaInput from './modal/TextAreaInput'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Icon } from './material/Icon.js';
+import { FilledButton } from './material/FilledButton'
 
 export default function EditModal({
     editTask,
@@ -41,7 +42,7 @@ export default function EditModal({
         <Modal visible={editTask} onClose={onClose}>
             {/* Header */}
             <header className='modal-header-container'>
-                <h3 className='title-large modal-header' >Edit Task</h3>
+                <h3 className='display-small modal-header' >Edit Task</h3>
                 <IconButton icon="delete" onClick={() => {onClose(); onDelete()}}/>
                 <IconButton icon="close" onClick={onClose} />
 
@@ -93,6 +94,9 @@ export default function EditModal({
                     />
                 )}
             </div>
+
+            {/* Submit button */}
+            <FilledButton className='modal-submit' label='Save' onClick={() => {onClose(); onSubmit(task)}}/>
         </Modal>
     )
 }

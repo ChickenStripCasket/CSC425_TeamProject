@@ -37,6 +37,9 @@
     border-radius: 16px;
     color: var(--md-sys-color-on-background);
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     /* transition stuff */
     opacity: 0;
     transform: translateY(10px);
