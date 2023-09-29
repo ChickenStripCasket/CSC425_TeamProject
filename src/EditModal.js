@@ -4,8 +4,6 @@ import TextInput from './TitleTextInput'
 import { useEffect, useState } from "react"
 import { IconButton } from './material/IconButton'
 import TextAreaInput from './modal/TextAreaInput'
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { Icon } from './material/Icon.js';
 import { FilledButton } from './material/FilledButton'
 
@@ -17,7 +15,7 @@ export default function EditModal({
 }) {
     // use the state of the edit modal
     const [task, setTask] = useState(editTask || { title: '', description: '', dueDate: new Date() });
-    const [showDatePicker, setShowDatePicker] = useState(false);
+    const [tempDueDate, setTempDueDate] = useState(task.dueDate);
 
     const saveTask = (toSave) => {
         // when saving the task, we have to put all of the contents of task
@@ -34,10 +32,8 @@ export default function EditModal({
     }, [editTask])
 
     const handleDueDateChange = (date) => {
-        task.dueDate = date
-        saveTask();
+        setTempDueDate(date);
     };
-
     return (
         <Modal visible={editTask} onClose={onClose}>
             {/* Header */}
@@ -73,30 +69,14 @@ export default function EditModal({
                     }
                 }
             />
- 
-                <div className="due-date-row">
-                    <div className="due-date-label">Due Date:</div>
-                    <div className="due-date-value">{task.dueDate.toLocaleString()}</div>
-                     <button
-                         className="date-picker-icon-button"
-                         onClick={() => setShowDatePicker(!showDatePicker)}
-                    >
-                    <Icon icon="calendar_month" className="calendar" />
 
-                     </button>
-                {showDatePicker && (
-                    <DatePicker
-                        selected={task.dueDate}
-                        onChange={handleDueDateChange}
-                        showTimeSelect
-                        timeFormat='h:mm aa'
-                        dateFormat='MMMM d, yyyy h:mm '
-                    />
-                )}
-            </div>
-
-            {/* Submit button */}
-            <FilledButton className='modal-submit' label='Save' onClick={() => {onClose(); onSubmit(task)}}/>
+             <input
+                type="datetime-local"
+                value={tempDueDate.toISOString().slice(0, -5)} // Format the date to ISO string without seconds and timezone
+                onChange={(e) => handleDueDateChange(new Date(e.target.value))}
+            />
+               
+             <FilledButton className='modal-submit' label='Save' onClick={() => {onClose(); onSubmit(task)}}/>
         </Modal>
     )
 }
