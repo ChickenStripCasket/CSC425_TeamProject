@@ -1,4 +1,4 @@
-
+import './modal/Input.css'
 
 export default function TextInput({
     title,
@@ -8,9 +8,9 @@ export default function TextInput({
 }){
     
     return (
-        <section>
-            <h1>Title</h1>
-            <input  onChange= {event => {onValueChanged(event.target.value)}} type= 'text' placeholder= {placeHolder} value= {value}></input>
+        <section className='input-container'>
+            <h1 className="title-large input-title">Title</h1>
+            <input className="title-medium text-area-input" onChange= {event => {onValueChanged(event.target.value)}} type= 'text' placeholder= {placeHolder} value= {value}></input>
         </section>
     )
 }
