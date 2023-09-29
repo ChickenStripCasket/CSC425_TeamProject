@@ -11,7 +11,8 @@ import { Icon } from './material/Icon.js';
 export default function EditModal({
     editTask,
     onClose,
-    onSubmit
+    onSubmit,
+    onDelete
 }) {
     // use the state of the edit modal
     const [task, setTask] = useState(editTask || { title: '', description: '', dueDate: new Date() });
@@ -32,7 +33,8 @@ export default function EditModal({
     }, [editTask])
 
     const handleDueDateChange = (date) => {
-        saveTask({ ...task, dueDate: date });
+        task.dueDate = date
+        saveTask();
     };
 
     return (
@@ -40,7 +42,7 @@ export default function EditModal({
             {/* Header */}
             <header className='modal-header-container'>
                 <h3 className='title-large modal-header' >Edit Task</h3>
-                <IconButton icon="delete" />
+                <IconButton icon="delete" onClick={onDelete}/>
                 <IconButton icon="close" onClick={onClose} />
 
             </header>

@@ -11,14 +11,15 @@
     align-items: flex-end;
   }
 
-  .view-button {
-    margin-left: 10px;
-    background-color: transparent;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-  }
-  .view-button:hover {
-    background-color: rgba(0, 0, 0, 0.1); 
-    border-radius: 10px;
-  } 
+.view-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.view-button {
+  color: var(--md-sys-color-on-surface-variant)
+}
+
+.view-button.selected {
+  color: var(--md-sys-color-on-surface)
+}
