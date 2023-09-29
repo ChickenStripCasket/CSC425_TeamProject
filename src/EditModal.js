@@ -72,27 +72,30 @@ export default function EditModal({
                     }
                 }
             />
- 
-                <div className="due-date-row">
-                    <div className="due-date-label">Due Date:</div>
-                    <div className="due-date-value">{task.dueDate.toLocaleString()}</div>
-                     <button
-                         className="date-picker-icon-button"
-                         onClick={() => setShowDatePicker(!showDatePicker)}
-                    >
-                    <Icon icon="calendar_month" className="calendar" />
 
-                     </button>
-                {showDatePicker && (
-                    <DatePicker
-                        selected={task.dueDate}
-                        onChange={handleDueDateChange}
-                        showTimeSelect
-                        timeFormat='h:mm aa'
-                        dateFormat='MMMM d, yyyy h:mm '
-                    />
-                )}
-            </div>
+
+               
+                     <div className="due-date-row">
+                     <div className="due-date-label">Due Date:</div>
+                     <div className="due-date-value">{task.dueDate.toLocaleString()}</div>
+                      <button
+                          className="date-picker-icon-button"
+                          onClick={() => setShowDatePicker(!showDatePicker)}
+                     >
+                     <Icon icon="calendar_month" className="calendar" />
+ 
+                      </button>
+                 {showDatePicker && (
+                     <DatePicker
+                         selected={task.dueDate}
+                         onChange={handleDueDateChange}
+                         showTimeSelect
+                         timeFormat='h:mm aa'
+                         dateFormat='MMMM d, yyyy h:mm '
+                     />
+                 )}
+             </div> 
+             
         </Modal>
     )
 }
