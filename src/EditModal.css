@@ -4,8 +4,16 @@
     flex:1;
 }
 
+.modal-header-container {
+    display: flex;
+    gap: 10px;
+}
+
 .due-date-row{
     display:flex;
     align-items: center;
 }
 
+.modal-submit {
+    width: 100% !important;
+}

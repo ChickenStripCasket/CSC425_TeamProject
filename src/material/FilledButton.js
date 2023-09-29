@@ -15,7 +15,7 @@ export function FilledButton(
                 // ensure that onClick exists, and call the function
                 if (onClick) onClick(event)
             }}
-            className={`material-filled-button label-large ${className}}`}
+            className={`material-filled-button label-large ${className}`}
         >
             {/* Icon can be undefined, so only render it if it's provided */}
             {icon && <Icon icon={icon}/>}
