@@ -1,6 +1,6 @@
 .material-symbols-rounded,
 .material-symbols-rounded-filled {
-  color: var(--md-sys-color-on-surface);
+  color: inherit;
 }
 
 .material-symbols-rounded {
