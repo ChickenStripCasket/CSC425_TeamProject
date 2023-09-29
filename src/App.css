@@ -3,3 +3,8 @@ main {
     margin: auto;
     padding: 10px;
 }
+
+.empty-text {
+    color: var(--md-sys-color-on-background);
+    text-align: center;
+}
