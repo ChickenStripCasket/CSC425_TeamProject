@@ -4,6 +4,8 @@
     flex:1;
 }
 
-.modal-header-container,.due-date-picker{
+.due-date-row{
     display:flex;
+    align-items: center;
 }
+
