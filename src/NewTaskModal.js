@@ -4,7 +4,6 @@ import TextInput from './TitleTextInput'
 import { useEffect, useState } from "react"
 import { IconButton } from './material/IconButton'
 import TextAreaInput from './modal/TextAreaInput'
-import 'react-datepicker/dist/react-datepicker.css';
 import { FilledButton } from './material/FilledButton'
 import DateTimeInput from './modal/DateTimeInput'
 
