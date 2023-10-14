@@ -1,5 +1,6 @@
 import './TaskCardGrid.css'
 import TaskCard from './TaskCard'
+import { updateTask } from './api'
 
 export default function TaskCardGrid(
     {
@@ -21,6 +22,8 @@ export default function TaskCardGrid(
                     }} onTaskChange={newTask => {
                         // replace the old task with the new one
                         tasks[n] = newTask
+                        // call api
+                        updateTask(newTask)
                         // call onTasksChange
                         if (onTasksChange) onTasksChange(tasks)
                     }} />
