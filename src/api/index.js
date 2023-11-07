@@ -1,6 +1,6 @@
 import Task from "./classes/Task";
 
-const apiUrl = "http://localhost:8000/api/v1"; // the API's URL
+const apiUrl = "https://anaura-task-master-server.fly.dev"; // the API's URL
 
 const defaultHeaders = {
 	"Content-Type": "application/json",
