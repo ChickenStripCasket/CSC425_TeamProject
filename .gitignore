@@ -44,3 +44,7 @@ yarn-debug.log*
 yarn-error.log*
 
 .prettierrc
+.dockerignore
+Dockerfile
+.gitignore
+fly.toml
